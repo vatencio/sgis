@@ -1,0 +1,24 @@
+tblmateriadocente_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblmateriadocente:index" }
+    methods:  GET
+
+tblmateriadocente_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblmateriadocente:show" }
+    methods:  GET
+
+tblmateriadocente_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblmateriadocente:new" }
+    methods:  [GET, POST]
+
+tblmateriadocente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblmateriadocente:edit" }
+    methods:  [GET, POST]
+
+tblmateriadocente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblmateriadocente:delete" }
+    methods:  DELETE

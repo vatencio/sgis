@@ -1,0 +1,24 @@
+tblinstitucion_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblinstitucion:index" }
+    methods:  GET
+
+tblinstitucion_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblinstitucion:show" }
+    methods:  GET
+
+tblinstitucion_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblinstitucion:new" }
+    methods:  [GET, POST]
+
+tblinstitucion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblinstitucion:edit" }
+    methods:  [GET, POST]
+
+tblinstitucion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblinstitucion:delete" }
+    methods:  DELETE

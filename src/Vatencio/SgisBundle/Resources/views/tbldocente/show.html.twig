@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbldocente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intiddocente</th>
+                <td>{{ tbldocente.intiddocente }}</td>
+            </tr>
+            <tr>
+                <th>Strespecialidad</th>
+                <td>{{ tbldocente.strespecialidad }}</td>
+            </tr>
+            <tr>
+                <th>Struser</th>
+                <td>{{ tbldocente.struser }}</td>
+            </tr>
+            <tr>
+                <th>Strpassword</th>
+                <td>{{ tbldocente.strpassword }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tbldocente.dtmcreacion %}{{ tbldocente.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tbldocente.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tbldocente.dtmactualizacion %}{{ tbldocente.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tbldocente.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbldocente_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tbldocente_edit', { 'id': tbldocente.intiddocente }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

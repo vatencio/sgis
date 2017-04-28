@@ -1,0 +1,51 @@
+Vatencio\SgisBundle\Entity\Tblnota:
+    type: entity
+    table: tblnota
+    id:
+        intidnota:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdNota
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        strdescripcion:
+            type: string
+            nullable: true
+            length: 1000
+            options:
+                fixed: false
+            column: strDescripcion
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    lifecycleCallbacks: {  }

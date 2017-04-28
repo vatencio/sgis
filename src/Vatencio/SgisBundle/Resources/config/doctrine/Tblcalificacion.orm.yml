@@ -1,0 +1,118 @@
+Vatencio\SgisBundle\Entity\Tblcalificacion:
+    type: entity
+    table: tblcalificacion
+    indexes:
+        intIdLogro:
+            columns:
+                - intIdLogro
+        intIdNota:
+            columns:
+                - intIdNota
+        intIdPeriodoYear:
+            columns:
+                - intIdPeriodoYear
+        intIdMateriaEstudiante:
+            columns:
+                - intIdMateriaEstudiante
+        intIdDocente:
+            columns:
+                - intIdDocente
+    id:
+        intidcalificacion:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdCalificacion
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        strdescripcion:
+            type: string
+            nullable: true
+            length: 1000
+            options:
+                fixed: false
+            column: strDescripcion
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidmateriaestudiante:
+            targetEntity: Tblmateriaestudiante
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdMateriaEstudiante:
+                    referencedColumnName: intIdMateriaEstudiante
+            orphanRemoval: false
+        intidlogro:
+            targetEntity: Tbllogro
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdLogro:
+                    referencedColumnName: intIdLogro
+            orphanRemoval: false
+        intiddocente:
+            targetEntity: Tbldocente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdDocente:
+                    referencedColumnName: intIdDocente
+            orphanRemoval: false
+        intidnota:
+            targetEntity: Tblnota
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdNota:
+                    referencedColumnName: intIdNota
+            orphanRemoval: false
+        intidperiodoyear:
+            targetEntity: Tblperiodoyear
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdPeriodoYear:
+                    referencedColumnName: intIdPeriodoYear
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

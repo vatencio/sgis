@@ -1,0 +1,98 @@
+/* 
+    Document   : login
+    Created on : Jun 24, 2013, 9:18:01 AM
+    Author     : obeltran
+    Description:
+        Purpose of the stylesheet follows.
+*/
+body{   
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 12px; 
+    margin: 0px;
+}
+#header{
+    background: url("../images/bg-row.gif") repeat-x scroll center top transparent;
+    height: 83px;
+}
+#contenido_header{
+    width: 960px;
+    margin: auto;
+}
+#logo{
+    float: left;
+    margin: 21px 0 0;
+}
+#main{    
+    width: 300px;
+    margin: auto;
+    padding: 50px;         
+}
+#main div.form-item-label{
+    display: inline-block;
+    text-align: right;
+    width: 80px;
+}
+#main div.form-item input{
+    width: 150px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+#main div.form-item input{
+    width: 150px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+#main #login-error{
+    color: red;    
+    margin: 10px auto auto;
+    width: 230px;
+}
+#main #login_boton{
+    margin: 20px auto auto;
+    display: inherit;
+}
+#footer{
+    background: url("../images/bg-footer.gif") repeat-x scroll center top transparent;
+    margin-top: 20px;
+    font-size: 10px;
+    color: white;
+    text-align: center;   
+    padding: 3px;
+}
+#footer a{
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="number"]{
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #484848;
+    padding: 5px;
+}
+label, input[type="button"], input[type="submit"], button {
+    cursor: pointer;
+}
+input[type="submit"]{
+    background: url("../images/bg-row.gif") repeat-x scroll center top transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 4px 7px;
+    position: relative;
+    vertical-align: middle;
+}
+input[type="submit"]:hover{
+    background: url("../images/bg-button.gif") repeat-x scroll center transparent;
+}
+form select{
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #484848;
+    padding: 5px; 
+}

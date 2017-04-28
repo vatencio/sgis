@@ -1,0 +1,73 @@
+Vatencio\SgisBundle\Entity\Tblmenu:
+    type: entity
+    table: tblmenu
+    indexes:
+        intIdPadre:
+            columns:
+                - intIdPadre
+    id:
+        intidmenu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdMenu
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        strurl:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strUrl
+        strdescripcion:
+            type: string
+            nullable: true
+            length: 1000
+            options:
+                fixed: false
+            column: strDescripcion
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidpadre:
+            targetEntity: Tblmenu
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdPadre:
+                    referencedColumnName: intIdMenu
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

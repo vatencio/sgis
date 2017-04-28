@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblsedes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidsede</th>
+                <th>Strnombre</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblsede in tblsedes %}
+            <tr>
+                <td><a href="{{ path('tblsede_show', { 'id': tblsede.intidsede }) }}">{{ tblsede.intidsede }}</a></td>
+                <td>{{ tblsede.strnombre }}</td>
+                <td>{% if tblsede.dtmcreacion %}{{ tblsede.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblsede.strcreacion }}</td>
+                <td>{% if tblsede.dtmactualizacion %}{{ tblsede.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblsede.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblsede_show', { 'id': tblsede.intidsede }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblsede_edit', { 'id': tblsede.intidsede }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblsede_new') }}">Create a new tblsede</a>
+        </li>
+    </ul>
+{% endblock %}

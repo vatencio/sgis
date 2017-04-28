@@ -1,0 +1,59 @@
+Vatencio\SgisBundle\Entity\Tblsede:
+    type: entity
+    table: tblsede
+    indexes:
+        intIdInstitucion:
+            columns:
+                - intIdInstitucion
+    id:
+        iintidsede:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: iintIdSede
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidinstitucion:
+            targetEntity: Tblinstitucion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdInstitucion:
+                    referencedColumnName: intIdInstitucion
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

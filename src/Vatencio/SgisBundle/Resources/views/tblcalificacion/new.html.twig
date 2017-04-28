@@ -1,0 +1,28 @@
+{% block javascripts %}   
+    <script src="{{ asset('bundles/vatenciosgis/js/accionesFormularios.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/vatenciosgis/js/validate/validateFacFactura.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+    <h2>Nueva Calificacion</h2>
+
+    {#{{ form_start(form) }}
+        {{ form_widget(form) }}#}
+       {# <input type="submit" value="Create" />#}
+    {#{{ form_end(form) }}#}
+     {#<form name="vatencio_sgisbundle_tblcalificacion" action="{{ path('tblcalificacion_new') }}" method="post" >
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    </form>#}
+    {{ form_start(form, { 'action': path('tblcalificacion_new'), 'attr': { 'class': 'vatencio_sgisbundle_tblcalificacion' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        {#<input type="submit" value="{{ 'change_password.submit'|trans }}" />#}
+    </div>
+    {{ form_end(form) }}
+    {#<ul>
+        <li>
+            <a href="{{ path('tblcalificacion_index') }}">Back to the list</a>
+        </li>
+    </ul>#}
+{% endblock %}

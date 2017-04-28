@@ -1,0 +1,52 @@
+Vatencio\SgisBundle\Entity\Tblestudiante:
+    type: entity
+    table: tblestudiante
+    indexes:
+        intIdpersona:
+            columns:
+                - intIdPersonal
+    id:
+        intidestudiante:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdEstudiante
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidpersonal:
+            targetEntity: Tblpersona
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdPersonal:
+                    referencedColumnName: intIdPersona
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

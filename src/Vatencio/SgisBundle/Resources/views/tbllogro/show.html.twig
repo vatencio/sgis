@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbllogro</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidlogro</th>
+                <td>{{ tbllogro.intidlogro }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tbllogro.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Strdescripcion</th>
+                <td>{{ tbllogro.strdescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tbllogro.dtmcreacion %}{{ tbllogro.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tbllogro.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tbllogro.dtmactualizacion %}{{ tbllogro.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tbllogro.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbllogro_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tbllogro_edit', { 'id': tbllogro.intidlogro }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    vatencio_sgis.example:
+#        class: Vatencio\SgisBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

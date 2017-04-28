@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblroles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidrol</th>
+                <th>Strnombre</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblrole in tblroles %}
+            <tr>
+                <td><a href="{{ path('tblrole_show', { 'id': tblrole.intidrol }) }}">{{ tblrole.intidrol }}</a></td>
+                <td>{{ tblrole.strnombre }}</td>
+                <td>{{ tblrole.strdescripcion }}</td>
+                <td>{% if tblrole.dtmcreacion %}{{ tblrole.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblrole.strcreacion }}</td>
+                <td>{% if tblrole.dtmactualizacion %}{{ tblrole.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblrole.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblrole_show', { 'id': tblrole.intidrol }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblrole_edit', { 'id': tblrole.intidrol }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblrole_new') }}">Create a new tblrole</a>
+        </li>
+    </ul>
+{% endblock %}

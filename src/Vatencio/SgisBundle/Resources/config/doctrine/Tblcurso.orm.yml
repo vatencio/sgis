@@ -1,0 +1,44 @@
+Vatencio\SgisBundle\Entity\Tblcurso:
+    type: entity
+    table: tblcurso
+    id:
+        intidcurso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdCurso
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+            column: strNombre
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    lifecycleCallbacks: {  }

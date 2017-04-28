@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblmaterias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidmateria</th>
+                <th>Strnombre</th>
+                <th>Isactive</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblmaterium in tblmaterias %}
+            <tr>
+                <td><a href="{{ path('tblmateria_show', { 'id': tblmaterium.intidmateria }) }}">{{ tblmaterium.intidmateria }}</a></td>
+                <td>{{ tblmaterium.strnombre }}</td>
+                <td>{% if tblmaterium.isactive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if tblmaterium.dtmcreacion %}{{ tblmaterium.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblmaterium.strcreacion }}</td>
+                <td>{% if tblmaterium.dtmactualizacion %}{{ tblmaterium.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblmaterium.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblmateria_show', { 'id': tblmaterium.intidmateria }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblmateria_edit', { 'id': tblmaterium.intidmateria }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblmateria_new') }}">Create a new tblmaterium</a>
+        </li>
+    </ul>
+{% endblock %}

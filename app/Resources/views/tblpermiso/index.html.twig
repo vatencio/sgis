@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblpermisos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidpermiso</th>
+                <th>Strnombre</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblpermiso in tblpermisos %}
+            <tr>
+                <td><a href="{{ path('tblpermiso_show', { 'id': tblpermiso.intidpermiso }) }}">{{ tblpermiso.intidpermiso }}</a></td>
+                <td>{{ tblpermiso.strnombre }}</td>
+                <td>{{ tblpermiso.strdescripcion }}</td>
+                <td>{% if tblpermiso.dtmcreacion %}{{ tblpermiso.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblpermiso.strcreacion }}</td>
+                <td>{% if tblpermiso.dtmactualizacion %}{{ tblpermiso.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblpermiso.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblpermiso_show', { 'id': tblpermiso.intidpermiso }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblpermiso_edit', { 'id': tblpermiso.intidpermiso }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblpermiso_new') }}">Create a new tblpermiso</a>
+        </li>
+    </ul>
+{% endblock %}

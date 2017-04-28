@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbldocentes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intiddocente</th>
+                <th>Strespecialidad</th>
+                <th>Struser</th>
+                <th>Strpassword</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tbldocente in tbldocentes %}
+            <tr>
+                <td><a href="{{ path('tbldocente_show', { 'id': tbldocente.intiddocente }) }}">{{ tbldocente.intiddocente }}</a></td>
+                <td>{{ tbldocente.strespecialidad }}</td>
+                <td>{{ tbldocente.struser }}</td>
+                <td>{{ tbldocente.strpassword }}</td>
+                <td>{% if tbldocente.dtmcreacion %}{{ tbldocente.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocente.strcreacion }}</td>
+                <td>{% if tbldocente.dtmactualizacion %}{{ tbldocente.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocente.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tbldocente_show', { 'id': tbldocente.intiddocente }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tbldocente_edit', { 'id': tbldocente.intiddocente }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbldocente_new') }}">Create a new tbldocente</a>
+        </li>
+    </ul>
+{% endblock %}

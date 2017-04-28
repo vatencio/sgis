@@ -1,0 +1,34 @@
+tbldocente_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:index" }
+    methods:  GET
+
+tbldocente_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:show" }
+    methods:  GET
+
+tbldocente_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:new" }
+    methods:  [GET, POST]
+
+tbldocente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:edit" }
+    methods:  [GET, POST]
+
+tbldocente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:delete" }
+    methods:  DELETE
+    
+tbldocente_edit_perfil:
+    path:  /{id}/editPerfil
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:editPerfil" } 
+    methods:  [GET, POST]
+
+tbldocente_update_perfil:
+    path:  /{id}/updatePerfil
+    defaults: { _controller: "VatencioSgisBundle:Tbldocente:updatePerfil" }
+    requirements: { _method: post|put }    

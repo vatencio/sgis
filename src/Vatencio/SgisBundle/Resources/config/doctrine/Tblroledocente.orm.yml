@@ -1,0 +1,65 @@
+Vatencio\SgisBundle\Entity\Tblroledocente:
+    type: entity
+    table: tblroledocente
+    indexes:
+        intIdRol:
+            columns:
+                - intIdRol
+        intIdDocente:
+            columns:
+                - intIdDocente
+    id:
+        intidroledocente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdRoleDocente
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intiddocente:
+            targetEntity: Tbldocente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdDocente:
+                    referencedColumnName: intIdDocente
+            orphanRemoval: false
+        intidrol:
+            targetEntity: Tblrole
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdRol:
+                    referencedColumnName: intIdRol
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

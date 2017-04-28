@@ -1,0 +1,65 @@
+Vatencio\SgisBundle\Entity\Tblmateriadocente:
+    type: entity
+    table: tblmateriadocente
+    indexes:
+        intIdDocente:
+            columns:
+                - intIdDocente
+        intIdMateria:
+            columns:
+                - intIdMateria
+    id:
+        intidmateriadocente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdMateriaDocente
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidmateria:
+            targetEntity: Tblmateria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdMateria:
+                    referencedColumnName: intIdMateria
+            orphanRemoval: false
+        intiddocente:
+            targetEntity: Tbldocente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdDocente:
+                    referencedColumnName: intIdDocente
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

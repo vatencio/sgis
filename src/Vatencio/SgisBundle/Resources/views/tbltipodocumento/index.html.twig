@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbltipodocumentos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidtipodocumento</th>
+                <th>Strnombre</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tbltipodocumento in tbltipodocumentos %}
+            <tr>
+                <td><a href="{{ path('tbltipodocumento_show', { 'id': tbltipodocumento.intidtipodocumento }) }}">{{ tbltipodocumento.intidtipodocumento }}</a></td>
+                <td>{{ tbltipodocumento.strnombre }}</td>
+                <td>{{ tbltipodocumento.strdescripcion }}</td>
+                <td>{% if tbltipodocumento.dtmcreacion %}{{ tbltipodocumento.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbltipodocumento.strcreacion }}</td>
+                <td>{% if tbltipodocumento.dtmactualizacion %}{{ tbltipodocumento.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbltipodocumento.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tbltipodocumento_show', { 'id': tbltipodocumento.intidtipodocumento }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tbltipodocumento_edit', { 'id': tbltipodocumento.intidtipodocumento }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbltipodocumento_new') }}">Create a new tbltipodocumento</a>
+        </li>
+    </ul>
+{% endblock %}

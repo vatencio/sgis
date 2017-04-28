@@ -1,0 +1,78 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div id="header">
+    <div id="contenido_header">
+        <div id="logo">
+            <img src="{{ asset('bundles/vatenciosgis/images/logo_rht_blanco_1.png') }}">
+        </div>
+        <div id="profile">
+            <a href="#" style="text-decoration:none" class="editar_perfil" accion="change" path='profile/change-password' >
+                <img width="15" height="15" src="{{ asset('bundles/vatenciosgis/images/cambiar-la-cotrasena.png') }}">
+            </a>
+            {% if persona_usu %}    
+            {% if persona_usu is null %}
+                <a href="#" class="editar_perfil" accion="create" path='tbldocente/new' >
+                    {{ app.user.username }}
+                </a>
+            {% else %}
+                <a href="#" class="editar_perfil" accion="update" path='docente/{{ persona_usu.intiddocente }}/editPerfil' >
+                    {{ app.user.username }}
+                </a>
+            {% endif %}
+            {% endif %}    
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        </div>
+    </div>        
+</div>
+{% if  permisos_menu != null %}
+<div id="menu">
+{% block menu %}    
+<div id="contenido_menu">
+    <ul class='sf-menu' id='example'>
+        <li class='current'>                   
+        {%set i = 0 %}
+        {% for permiso in permisos_menu %}                    
+            {% if permiso.intidmenu.intidpadre == null %}
+                {% if i != 0 %}
+                    </ul>
+                    </li>
+                    <li>
+                    {%set i = 0 %}
+                 {% endif %}
+                 <a href='#'>{{permiso.intidmenu.strnombre}}</a>
+                 <ul>                 
+             {% else %}                                              
+                <li>
+                    <a class='link_tab' value='{{permiso.intidmenu.strnombre}}' path='{{permiso.intidmenu.strurl}}'>{{permiso.intidmenu.strnombre}}</a>
+                </li>
+             {% endif %}
+             {% set i = (i+1) %}
+        {% endfor %}
+        </li>
+        </ul> 
+    </ul>    
+</div>
+{% endblock %}
+</div>
+{% endif %}
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<!--Dialogos-->
+<div id="mensaje_popup"></div>
+<div id="show_form"></div>
+<div id="show_form_emergente"></div>
+<div id="mensaje_espera"></div>
+<!---->
+{% block footer %}
+<div id="footer">
+    SISTEMA DE GESTION INSTITUCION EDUCATIVA DE SANTA LUCÍA.<br/> 
+    Tel.(57)(1)5334740 Santa Lucía (Córdoba Bolívar), Colombia.<br/>
+    Design by VatencioSoft</a><br/>
+    &copy;Copyright 2017
+</div>  
+{% endblock %}
+{% endblock %}

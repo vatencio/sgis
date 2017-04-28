@@ -1,0 +1,24 @@
+tblcalificacion_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblcalificacion:index" }
+    methods:  GET
+
+tblcalificacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblcalificacion:show" }
+    methods:  GET
+
+tblcalificacion_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblcalificacion:new" }
+    methods:  [GET, POST]
+
+tblcalificacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblcalificacion:edit" }
+    methods:  [GET, POST]
+
+tblcalificacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblcalificacion:delete" }
+    methods:  DELETE

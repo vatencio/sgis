@@ -1,0 +1,36 @@
+div.eval_pregunta_contenido{
+    
+}
+
+div[class*="seq_visible"] {
+    display: none;    
+}
+
+p.eval_opcion_respuesta label{
+    display: inline-block;
+}
+p.eval_opcion_respuesta input{
+    display: inline-block;
+}
+p.pregunta_enunciado a{
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;    
+}
+
+p.pregunta_enunciado a:hover{
+    font-weight: bold;
+}
+
+div.contenedor_form form div#rht_rhtonlinebundle_sgupersonatype {    
+    padding: 20px;
+}
+
+div.contenedor_form form div div{    
+    display: inline-block;
+    margin: 10px;
+}
+
+div.eval_contenedor_botones{
+    margin-top: 20px;
+}

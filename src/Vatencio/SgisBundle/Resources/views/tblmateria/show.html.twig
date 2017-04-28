@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblmaterium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidmateria</th>
+                <td>{{ tblmaterium.intidmateria }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblmaterium.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if tblmaterium.isactive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblmaterium.dtmcreacion %}{{ tblmaterium.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblmaterium.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblmaterium.dtmactualizacion %}{{ tblmaterium.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblmaterium.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblmateria_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblmateria_edit', { 'id': tblmaterium.intidmateria }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

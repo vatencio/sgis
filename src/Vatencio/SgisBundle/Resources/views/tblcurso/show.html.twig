@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblcurso</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidcurso</th>
+                <td>{{ tblcurso.intidcurso }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblcurso.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblcurso.dtmcreacion %}{{ tblcurso.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblcurso.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblcurso.dtmactualizacion %}{{ tblcurso.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblcurso.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblcurso_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblcurso_edit', { 'id': tblcurso.intidcurso }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

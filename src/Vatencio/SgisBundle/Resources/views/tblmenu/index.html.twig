@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblmenus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidmenu</th>
+                <th>Strnombre</th>
+                <th>Strurl</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblmenu in tblmenus %}
+            <tr>
+                <td><a href="{{ path('tblmenu_show', { 'id': tblmenu.intidmenu }) }}">{{ tblmenu.intidmenu }}</a></td>
+                <td>{{ tblmenu.strnombre }}</td>
+                <td>{{ tblmenu.strurl }}</td>
+                <td>{{ tblmenu.strdescripcion }}</td>
+                <td>{% if tblmenu.dtmcreacion %}{{ tblmenu.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblmenu.strcreacion }}</td>
+                <td>{% if tblmenu.dtmactualizacion %}{{ tblmenu.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblmenu.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblmenu_show', { 'id': tblmenu.intidmenu }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblmenu_edit', { 'id': tblmenu.intidmenu }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblmenu_new') }}">Create a new tblmenu</a>
+        </li>
+    </ul>
+{% endblock %}

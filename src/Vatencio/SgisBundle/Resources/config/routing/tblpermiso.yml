@@ -1,0 +1,24 @@
+tblpermiso_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblpermiso:index" }
+    methods:  GET
+
+tblpermiso_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblpermiso:show" }
+    methods:  GET
+
+tblpermiso_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblpermiso:new" }
+    methods:  [GET, POST]
+
+tblpermiso_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblpermiso:edit" }
+    methods:  [GET, POST]
+
+tblpermiso_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblpermiso:delete" }
+    methods:  DELETE

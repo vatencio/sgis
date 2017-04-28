@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/config/services.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/config/config.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Form/RegistrationType.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/Registration/checkEmail.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Entity/Tbldocente.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Entity/Tblcalificacion.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/config/routing/tblcalificacion.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Repository/TblusuarioRepository.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/ChangePassword/changePassword_content.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/AppKernel.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Entity/Tblpermiso.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/tblcalificacion/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/Registration/register.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/vendor/friendsofsymfony/user-bundle/Controller/SecurityController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/public/css/index.css</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/ChangePasswordController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/SecurityController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/config/security.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/app/config/parameters.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/TblcalificacionController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/tblcalificacion/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/template.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/TbldocenteController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/public/js/principal.js</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/ChangePassword/changePassword.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/vendor/friendsofsymfony/user-bundle/Controller/ChangePasswordController.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Form/TblcalificacionType.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Form/Mostrar/SguDocentePersonaUsuarioPerfilMostrarType.php</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/tbldocente/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/Registration/confirmed.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/views/tbldocente/editPerfil.html.twig</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/config/doctrine/Tblusuario.orm.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Resources/config/routing/tbldocente.yml</file>
+            <file>file:/C:/xampp/htdocs/sgis/src/Vatencio/SgisBundle/Controller/TblpersonaController.php</file>
+        </group>
+    </open-files>
+</project-private>

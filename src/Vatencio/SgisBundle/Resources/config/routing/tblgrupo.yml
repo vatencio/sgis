@@ -1,0 +1,24 @@
+tblgrupo_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupo:index" }
+    methods:  GET
+
+tblgrupo_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupo:show" }
+    methods:  GET
+
+tblgrupo_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupo:new" }
+    methods:  [GET, POST]
+
+tblgrupo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupo:edit" }
+    methods:  [GET, POST]
+
+tblgrupo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupo:delete" }
+    methods:  DELETE

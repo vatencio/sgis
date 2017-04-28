@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblnotas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidnota</th>
+                <th>Strnombre</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblnotum in tblnotas %}
+            <tr>
+                <td><a href="{{ path('tblnota_show', { 'id': tblnotum.intidnota }) }}">{{ tblnotum.intidnota }}</a></td>
+                <td>{{ tblnotum.strnombre }}</td>
+                <td>{{ tblnotum.strdescripcion }}</td>
+                <td>{% if tblnotum.dtmcreacion %}{{ tblnotum.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblnotum.strcreacion }}</td>
+                <td>{% if tblnotum.dtmactualizacion %}{{ tblnotum.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblnotum.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblnota_show', { 'id': tblnotum.intidnota }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblnota_edit', { 'id': tblnotum.intidnota }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblnota_new') }}">Create a new tblnotum</a>
+        </li>
+    </ul>
+{% endblock %}

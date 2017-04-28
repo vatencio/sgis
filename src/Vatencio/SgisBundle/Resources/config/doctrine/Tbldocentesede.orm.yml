@@ -1,0 +1,65 @@
+Vatencio\SgisBundle\Entity\Tbldocentesede:
+    type: entity
+    table: tbldocentesede
+    indexes:
+        intIdDocente:
+            columns:
+                - intIdDocente
+        intIdSede:
+            columns:
+                - intIdSede
+    id:
+        intiddocentesede:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdDocenteSede
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidsede:
+            targetEntity: Tblsede
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdSede:
+                    referencedColumnName: iintIdSede
+            orphanRemoval: false
+        intiddocente:
+            targetEntity: Tbldocente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdDocente:
+                    referencedColumnName: intIdDocente
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

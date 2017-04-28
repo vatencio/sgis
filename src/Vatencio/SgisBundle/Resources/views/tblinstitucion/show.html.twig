@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblinstitucion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidinstitucion</th>
+                <td>{{ tblinstitucion.intidinstitucion }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblinstitucion.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblinstitucion.dtmcreacion %}{{ tblinstitucion.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblinstitucion.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblinstitucion.dtmactualizacion %}{{ tblinstitucion.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblinstitucion.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblinstitucion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblinstitucion_edit', { 'id': tblinstitucion.intidinstitucion }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

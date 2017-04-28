@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblyear</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidyear</th>
+                <td>{{ tblyear.intidyear }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblyear.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblyear.dtmcreacion %}{{ tblyear.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblyear.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblyear.dtmactualizacion %}{{ tblyear.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblyear.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblyear_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblyear_edit', { 'id': tblyear.intidyear }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

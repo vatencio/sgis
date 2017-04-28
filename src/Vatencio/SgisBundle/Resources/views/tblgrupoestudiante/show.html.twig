@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblgrupoestudiante</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidgrupoestudiante</th>
+                <td>{{ tblgrupoestudiante.intidgrupoestudiante }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblgrupoestudiante.dtmcreacion %}{{ tblgrupoestudiante.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblgrupoestudiante.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblgrupoestudiante.dtmactualizacion %}{{ tblgrupoestudiante.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblgrupoestudiante.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblgrupoestudiante_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblgrupoestudiante_edit', { 'id': tblgrupoestudiante.intidgrupoestudiante }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

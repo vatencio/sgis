@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblperiodoyear</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidperiodoyear</th>
+                <td>{{ tblperiodoyear.intidperiodoyear }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblperiodoyear.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblperiodoyear.dtmcreacion %}{{ tblperiodoyear.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblperiodoyear.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblperiodoyear.dtmactualizacion %}{{ tblperiodoyear.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblperiodoyear.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblperiodoyear_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblperiodoyear_edit', { 'id': tblperiodoyear.intidperiodoyear }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

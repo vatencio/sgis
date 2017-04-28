@@ -1,0 +1,72 @@
+Vatencio\SgisBundle\Entity\Tblperiodoyear:
+    type: entity
+    table: tblperiodoyear
+    indexes:
+        intIdYear:
+            columns:
+                - intIdYear
+        intIdPeriodo:
+            columns:
+                - intIdPeriodo
+    id:
+        intidperiodoyear:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdPeriodoYear
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidperiodo:
+            targetEntity: Tblperiodo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdPeriodo:
+                    referencedColumnName: intIdPeriodo
+            orphanRemoval: false
+        intidyear:
+            targetEntity: Tblyear
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdYear:
+                    referencedColumnName: intIdYear
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

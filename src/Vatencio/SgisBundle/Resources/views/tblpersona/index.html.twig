@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblpersonas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidpersona</th>
+                <th>Strnodocumento</th>
+                <th>Strprimernombre</th>
+                <th>Strsegundonombre</th>
+                <th>Strprimerapellido</th>
+                <th>Strsegundoapellido</th>
+                <th>Strsexo</th>
+                <th>Isactive</th>
+                <th>Dtmfechanacimiento</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblpersona in tblpersonas %}
+            <tr>
+                <td><a href="{{ path('tblpersona_show', { 'id': tblpersona.intidpersona }) }}">{{ tblpersona.intidpersona }}</a></td>
+                <td>{{ tblpersona.strnodocumento }}</td>
+                <td>{{ tblpersona.strprimernombre }}</td>
+                <td>{{ tblpersona.strsegundonombre }}</td>
+                <td>{{ tblpersona.strprimerapellido }}</td>
+                <td>{{ tblpersona.strsegundoapellido }}</td>
+                <td>{% if tblpersona.strsexo %}Yes{% else %}No{% endif %}</td>
+                <td>{% if tblpersona.isactive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if tblpersona.dtmfechanacimiento %}{{ tblpersona.dtmfechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if tblpersona.dtmcreacion %}{{ tblpersona.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblpersona.strcreacion }}</td>
+                <td>{% if tblpersona.dtmactualizacion %}{{ tblpersona.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblpersona.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblpersona_show', { 'id': tblpersona.intidpersona }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblpersona_edit', { 'id': tblpersona.intidpersona }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblpersona_new') }}">Create a new tblpersona</a>
+        </li>
+    </ul>
+{% endblock %}

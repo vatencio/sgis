@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblpersona</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidpersona</th>
+                <td>{{ tblpersona.intidpersona }}</td>
+            </tr>
+            <tr>
+                <th>Strnodocumento</th>
+                <td>{{ tblpersona.strnodocumento }}</td>
+            </tr>
+            <tr>
+                <th>Strprimernombre</th>
+                <td>{{ tblpersona.strprimernombre }}</td>
+            </tr>
+            <tr>
+                <th>Strsegundonombre</th>
+                <td>{{ tblpersona.strsegundonombre }}</td>
+            </tr>
+            <tr>
+                <th>Strprimerapellido</th>
+                <td>{{ tblpersona.strprimerapellido }}</td>
+            </tr>
+            <tr>
+                <th>Strsegundoapellido</th>
+                <td>{{ tblpersona.strsegundoapellido }}</td>
+            </tr>
+            <tr>
+                <th>Strsexo</th>
+                <td>{% if tblpersona.strsexo %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if tblpersona.isactive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dtmfechanacimiento</th>
+                <td>{% if tblpersona.dtmfechanacimiento %}{{ tblpersona.dtmfechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblpersona.dtmcreacion %}{{ tblpersona.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblpersona.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblpersona.dtmactualizacion %}{{ tblpersona.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblpersona.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblpersona_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblpersona_edit', { 'id': tblpersona.intidpersona }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

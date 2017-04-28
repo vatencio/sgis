@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblpermiso</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidpermiso</th>
+                <td>{{ tblpermiso.intidpermiso }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblpermiso.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Strdescripcion</th>
+                <td>{{ tblpermiso.strdescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblpermiso.dtmcreacion %}{{ tblpermiso.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblpermiso.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblpermiso.dtmactualizacion %}{{ tblpermiso.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblpermiso.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblpermiso_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblpermiso_edit', { 'id': tblpermiso.intidpermiso }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,97 @@
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li {
+	position: relative;
+}
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+.sf-menu > li {
+    float: left;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+	display: block;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;          
+}
+
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	float: left;
+	margin-top: 40px;
+}
+.sf-menu ul {
+	box-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	min-width: 12em; /* allow long menu items to determine submenu width */
+	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
+        border-radius: 7px;
+        border: 2px red;
+        background: white;
+}
+.sf-menu a {
+	zoom: 1; /* IE7 */
+        color: white;
+        padding: 12px 20px 11px !important;
+        text-decoration: none;
+        text-shadow: 1px 1px 0 #002D6B;
+}
+.sf-menu li {
+	background: none;
+	white-space: nowrap; /* no need for Supersubs plugin */
+	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	-webkit-transition: background .2s;
+	transition: background .2s;
+        text-shadow: 1px, 1px, none;        
+}
+.sf-menu li ul{
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+}
+.sf-menu ul li {
+	background: none;        
+}
+.sf-menu ul ul li {
+	background: none;
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover {	
+	/* only transition out, not in */
+	-webkit-transition: none;
+	transition: none;
+        text-shadow: 1px, 1px, none;
+        border-radius: 7px;
+        color: white;
+        border-bottom: white 1px solid;
+}
+.sf-menu li ul li:hover{
+    background: #EDEDED;
+}
+.sf-menu ul li a {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    border-radius: 0 0 0 0;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 0 12px 13px !important;
+    text-align: left;
+    text-shadow: none;
+}

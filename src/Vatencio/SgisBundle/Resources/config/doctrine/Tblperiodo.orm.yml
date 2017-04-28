@@ -1,0 +1,44 @@
+Vatencio\SgisBundle\Entity\Tblperiodo:
+    type: entity
+    table: tblperiodo
+    id:
+        intidperiodo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdPeriodo
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnombre:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strNombre
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    lifecycleCallbacks: {  }

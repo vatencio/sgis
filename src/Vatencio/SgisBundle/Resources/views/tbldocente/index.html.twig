@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}    
+    <script src="{{ asset('bundles/vatenciosgis/js/tabsControlador.js') }}" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <h2>Docentes</h2>
+    <div class="pest_acciones"> 
+        <div class="pest_acciones_comp">
+            <ul class="menu_acciones">
+                <li class="componente_boton ventana_show" path="{{ path('tbldocente_new') }}" accion="nuevo_usuario">
+                    <a href="#">
+                        Nuevo
+                    </a>
+                </li>
+
+            </ul>
+        </div>        
+   </div>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Intiddocente</th>
+                <th>Strespecialidad</th>
+                <th>Struser</th>
+                <th>Strpassword</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tbldocente in tbldocentes %}
+            <tr>
+                <td>{{ tbldocente.intiddocente }}</td>
+                <td>{{ tbldocente.strespecialidad }}</td>
+                <td>{{ tbldocente.struser }}</td>
+                <td>{{ tbldocente.strpassword }}</td>
+                <td>{% if tbldocente.dtmcreacion %}{{ tbldocente.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocente.strcreacion }}</td>
+                <td>{% if tbldocente.dtmactualizacion %}{{ tbldocente.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocente.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a  href="#" class="ventana_show" path="{{ path('tbldocente_show', { 'id': tbldocente.intiddocente }) }}" accion="ver">ver</a>
+                        </li>
+                        <li>
+                            <a href="#" class="ventana_show" path="{{ path('tbldocente_edit', { 'id': tbldocente.intiddocente }) }}" accion="editar">editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

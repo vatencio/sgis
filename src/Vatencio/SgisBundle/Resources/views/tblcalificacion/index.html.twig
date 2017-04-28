@@ -1,0 +1,57 @@
+{% block javascripts %}   
+    <script src="{{ asset('bundles/vatenciosgis/js/funcionesDialogo.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/vatenciosgis/js/tabsControlador.js') }}" type="text/javascript"></script>
+{% endblock %}
+<div class="contenedor_pestana">
+{% block body %}
+    <h2>Calificaciones</h2>
+    <div class="pest_acciones"> 
+        <div class="pest_acciones_comp">
+            <ul class="menu_acciones">
+                <li class="componente_boton ventana_show" path="{{ path('tblcalificacion_new') }}" accion="nuevo">
+                    <a href="#">
+                        Nuevo
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Fecha Creacion</th>
+                <th>Usuario Creacion</th>
+                <th>Fecha Actualizacion</th>
+                <th>Usuario Actualizacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblcalificacion in tblcalificacions %}
+            <tr>
+                <td><a href="{{ path('tblcalificacion_show', { 'id': tblcalificacion.intidcalificacion }) }}">{{ tblcalificacion.intidcalificacion }}</a></td>
+                <td>{{ tblcalificacion.strnombre }}</td>
+                <td>{{ tblcalificacion.strdescripcion }}</td>
+                <td>{% if tblcalificacion.dtmcreacion %}{{ tblcalificacion.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblcalificacion.strcreacion }}</td>
+                <td>{% if tblcalificacion.dtmactualizacion %}{{ tblcalificacion.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblcalificacion.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="#" class="ventana_show" path="{{ path('tblcalificacion_show', { 'id': tblcalificacion.intidcalificacion }) }}" accion="ver">ver</a>
+                        </li>
+                        <li>
+                            <a href="#" class="ventana_show" path="{{ path('tblcalificacion_edit', { 'id': tblcalificacion.intidcalificacion }) }}" accion="editar">editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+</div>

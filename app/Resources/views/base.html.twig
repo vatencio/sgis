@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}SGIS{% endblock %}</title>
+        {% block javascripts %}        
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/jquery-1.9.1.js') }}" type="text/javascript"></script>            
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/jquery-ui-1.10.3.custom.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/jquery.dataTables.min.js') }}" type="text/javascript"></script>            
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/superfish.js') }}" type="text/javascript"></script>
+            <script type="text/javascript"  src="{{ asset('bundles/vatenciosgis/js/ajaxupload/jquery.iframe-transport.js') }}"></script>
+            <script type="text/javascript"  src="{{ asset('bundles/vatenciosgis/js/ajaxupload/jquery.fileupload.js') }}"></script>
+            
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/validate/jquery.validate.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/validate/additional-methods.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/jquery/validate/messages_es.js') }}" type="text/javascript"></script>
+            
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+            
+            <script src="{{ asset('bundles/vatenciosgis/js/principal.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/indexTabs.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/funcionesDialogo.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/funcionesGenericas.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/vatenciosgis/js/tabsVentanaEmergente.js') }}" type="text/javascript"></script>
+        {% endblock %}
+        {% block stylesheets %}            
+            <link rel="stylesheet" href="{{ asset('bundles/vatenciosgis/css/index.css') }}" />                         
+            <link rel="stylesheet" href="{{ asset('bundles/vatenciosgis/css/jquery.dataTables.css') }}" />  
+            <link rel="stylesheet" href="{{ asset('bundles/vatenciosgis/css/theme/jquery-ui-1.10.3.custom.min.css') }}" />  
+            <link rel="stylesheet" href="{{ asset('bundles/vatenciosgis/css/theme/jquery-ui-1.10.3.custom.min.css') }}" />  
+            <link rel="stylesheet" href="{{ asset('bundles/vatenciosgis/css/superfish.css') }}" />  
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="content_body">  
+            {% block body %}      
+            {% endblock %}     
+        </div>
+    </body>
+</html>
+

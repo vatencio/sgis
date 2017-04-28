@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblnotum</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidnota</th>
+                <td>{{ tblnotum.intidnota }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblnotum.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Strdescripcion</th>
+                <td>{{ tblnotum.strdescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblnotum.dtmcreacion %}{{ tblnotum.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblnotum.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblnotum.dtmactualizacion %}{{ tblnotum.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblnotum.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblnota_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblnota_edit', { 'id': tblnotum.intidnota }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

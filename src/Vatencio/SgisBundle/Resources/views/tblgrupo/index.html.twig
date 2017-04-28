@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblgrupos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidgrupo</th>
+                <th>Strnombre</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblgrupo in tblgrupos %}
+            <tr>
+                <td><a href="{{ path('tblgrupo_show', { 'id': tblgrupo.intidgrupo }) }}">{{ tblgrupo.intidgrupo }}</a></td>
+                <td>{{ tblgrupo.strnombre }}</td>
+                <td>{% if tblgrupo.dtmcreacion %}{{ tblgrupo.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblgrupo.strcreacion }}</td>
+                <td>{% if tblgrupo.dtmactualizacion %}{{ tblgrupo.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblgrupo.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblgrupo_show', { 'id': tblgrupo.intidgrupo }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblgrupo_edit', { 'id': tblgrupo.intidgrupo }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblgrupo_new') }}">Create a new tblgrupo</a>
+        </li>
+    </ul>
+{% endblock %}

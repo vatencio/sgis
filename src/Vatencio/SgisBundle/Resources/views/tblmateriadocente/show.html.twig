@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblmateriadocente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidmateriadocente</th>
+                <td>{{ tblmateriadocente.intidmateriadocente }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblmateriadocente.dtmcreacion %}{{ tblmateriadocente.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblmateriadocente.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblmateriadocente.dtmactualizacion %}{{ tblmateriadocente.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblmateriadocente.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblmateriadocente_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblmateriadocente_edit', { 'id': tblmateriadocente.intidmateriadocente }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

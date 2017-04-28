@@ -1,0 +1,24 @@
+tbllogro_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tbllogro:index" }
+    methods:  GET
+
+tbllogro_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tbllogro:show" }
+    methods:  GET
+
+tbllogro_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tbllogro:new" }
+    methods:  [GET, POST]
+
+tbllogro_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tbllogro:edit" }
+    methods:  [GET, POST]
+
+tbllogro_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tbllogro:delete" }
+    methods:  DELETE

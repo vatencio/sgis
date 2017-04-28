@@ -1,0 +1,358 @@
+/* 
+    Document   : index
+    Created on : Jun 21, 2013, 9:41:12 AM
+    Author     : obeltran
+    Description:
+        
+*/
+h2{    
+    border-radius: 1px;
+    color: #00629B;
+    border-bottom: 1px solid #00629B;
+    padding: 10px;
+    text-align: right;
+}
+
+h3{
+    background: #00629B;
+    border-radius: 7px;
+    color: white;    
+    padding: 10px;
+    text-align: right;
+}
+body{    
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 14px;   
+    margin: 0px;
+}
+#header{
+    background: url("../images/bg-row.gif") repeat-x scroll center top transparent;
+    height: 83px;
+}
+#contenido_header{
+    width: 960px;
+    margin: auto;
+}
+#logo{
+    float: left;
+    margin: 16px 0 0;
+}
+#profile{
+    background: none repeat scroll 0 0 white;
+    border: medium solid white;
+    border-radius: 7px 7px 7px 7px;
+    float: right;
+    margin-top: 20px;
+    padding: 10px;
+}
+#profile a{
+    text-decoration: none;
+    color: black;
+}
+#profile a:hover{
+    text-decoration: underline;    
+}
+#content{
+    width: 1024px;
+    margin: auto;
+    display: block;  
+}
+#menu{    
+    height: 95px;
+    background: #001F52;
+}
+#contenido_menu{
+    height: 50px;    
+    width: 1024px;
+    margin: auto;
+}
+#footer{
+    background: url("../images/bg-footer.gif") repeat-x scroll center top transparent;
+    margin-top: 20px;
+    font-size: 10px;
+    color: white;
+    text-align: center;   
+    padding: 3px;
+}
+#footer a{
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+}
+form{    
+    font-size: 13px;
+}
+
+form.form_filtro{    
+    font-size: 12px;
+    width: auto;
+}
+
+form.form_filtro div.form_filtro_comp{    
+    display: inline-block;    
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+}
+
+div.contenedor_pestana{
+    margin-bottom: 50px;
+}
+
+div.pest_acciones{
+    border: 1px solid #00629B;
+    border-radius: 7px;
+    margin-bottom: 20px;    
+    padding: 9px;
+}
+
+div.pest_acciones_comp{
+    display: inline-block;    
+}
+div.pest_acciones_comp label, div.pest_acciones_comp select{
+    display: inline-block;
+    margin: 5px;
+}
+
+div.records_list_container{
+    width: 100%;
+}
+
+div.lista_licencias_asignacion_contenedor{
+    border: 1px solid #00629B;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 10px;
+    vertical-align: top;       
+}
+
+div.lista_licencias_asignacion_contenedor div{
+    display: inline-block;        
+    margin: 0 10px;
+}
+
+div.lista_licencias_asignacion_contenedor h4{
+    border-bottom: 1px solid #00629B;
+    margin: 13px;
+    padding: 0;
+    text-align: right;
+    color: #00629B;
+}
+
+ul.menu_acciones{
+    list-style: none outside none;
+    margin: auto;
+    padding: 0;    
+}
+ul.menu_acciones li{ 
+    
+}
+ul.record_actions{
+    list-style: none;
+    padding: 0px;
+}
+label, input[type="button"], input[type="submit"], button {
+    cursor: pointer;
+    display: block;
+}
+input[type="submit"]{
+    background: url("../images/bg-row.gif") repeat-x scroll center top transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 4px 7px;
+    position: relative;
+    vertical-align: middle;
+}
+input[type="submit"]:hover{
+    background: url("../images/bg-button.gif") repeat-x scroll center transparent;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="number"]{
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #484848;
+    padding: 5px;
+    width: 181px;
+}
+form select{
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #484848;
+    padding: 5px; 
+}
+textarea{
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #484848;
+    padding: 3px;
+    resize: vertical;
+    width: 300px;
+}
+span.cerrar_tab{
+    display: inline-block;
+    cursor: pointer;
+}
+/*Estilos ventanas de dialogo*/
+#show_form form,#show_form_emergente form{
+    width: 450px;
+    height: auto; 
+    margin: auto;
+    padding: 10px;
+}
+#show_form #show_form_emergente #form_claves{
+    width: 750px;
+    margin: auto;
+    padding: 10px;
+}
+#show_form form div,#show_form_emergente form div, #show_form form div div div div, #show_form_emergente form div div div div{
+    display: inline-block;
+    margin: 7px;
+}
+
+form select{
+    width: 193px;
+}
+
+form select.EmpresaClienteSelect{
+    width: 400px;
+}
+
+form select[id*="year"]{
+    width: 70px;
+}
+form select[id*="month"], form select[id*="day"]{
+    width: 65px;
+}
+
+table.record_properties{    
+    border-collapse: collapse;    
+    width: 100%;
+}
+table.record_properties th{    
+    background-color: background;
+    border: 1px solid  #00629B;
+    color: #FFFFFF;
+    font-size: 13px;
+    padding: 5px 7px 4px;
+    text-align: right;   
+}
+table.record_properties td{	
+    border: 1px solid #2F99B1;
+    font-size: 14px;
+    padding: 3px 7px 2px;
+    font-size: 12px;
+}
+table.record_properties td ul{
+    list-style: none;
+    padding: 0px;
+}
+table.record_properties td li{    
+    margin: 2px;
+    padding: 2px;
+    text-align: center;    
+}
+table.record_properties td li :hover{
+   color: #2F99B5;
+   text-decoration: underline;
+}
+table.record_properties td li a{
+    text-decoration: none;
+    color: #2F99B1;
+}
+table.record_properties{
+    margin: auto;
+}
+form div div ul{
+    list-style: none;
+    padding: 0px;
+    color: red;
+    width: 150px;
+}
+/*Estilos bloque de aviso renovaciones*/
+div #block_licencia_renovacion{    
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 3px solid #F58F0B;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    position: fixed;
+    right: 168px;
+    top: 84px;
+    width: 300px;
+    z-index: 99;    
+}
+div #block_licencia_renovacion div.block_licencia_renovacion_contenido{  
+    color: #00629B;
+    opacity: 1;
+    margin: 5px 5px 5px 69px;
+}
+div #block_licencia_renovacion h2{     
+    font-family: "Lucida Grande", Helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 0px;
+    text-align: left;
+}
+div #block_licencia_renovacion span.icono{
+    position: absolute;
+    display: block;
+    width: 48px;
+    height: 48px;
+    top: 5px;
+    left: 10px;
+    background: transparent url(../images/notice.png) no-repeat 0 0;
+    z-index: 1;
+}
+/*Estilos renovacion de licencias*/
+div #renovacion_clave_contenedor{
+    text-align: center;
+}
+div #renovacion_clave_contenedor input[type="text"]{
+    width: 50px;
+    text-align: center;
+}
+div #renovacion_serial_contenedor{    
+    text-align: center;
+}
+div #renovacion_serial_contenedor input[type="text"]{
+    width: 50px;
+    text-align: center;
+}
+div #renovacion_info_contacto{
+    text-align: center;
+    border: 1px solid;
+    border-radius: 3px;
+    margin: 25px;
+}
+p.renovacion_licencia_error{
+    color: red;
+    text-align: center;
+}
+div#claves_lista_claves table thead th.claves_lista_claves_producto{
+    width: 100px;
+}
+div#claves_lista_claves table thead th.claves_lista_claves_clave{
+    width: 200px;
+}
+div#claves_lista_claves table thead th.claves_lista_claves_serial{
+    width: 160px;
+}
+div#claves_lista_claves table thead th.claves_lista_claves_fecha_gen{
+    width: 115px;
+}
+div#claves_lista_claves table thead th.claves_lista_claves_usuario_gen{
+    width: 80px;
+}
+label.error {
+    list-style: none;
+    padding: 0px;
+    color: red;
+    width: 150px;
+}

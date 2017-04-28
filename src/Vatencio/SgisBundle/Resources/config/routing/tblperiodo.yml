@@ -1,0 +1,24 @@
+tblperiodo_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodo:index" }
+    methods:  GET
+
+tblperiodo_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodo:show" }
+    methods:  GET
+
+tblperiodo_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodo:new" }
+    methods:  [GET, POST]
+
+tblperiodo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodo:edit" }
+    methods:  [GET, POST]
+
+tblperiodo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodo:delete" }
+    methods:  DELETE

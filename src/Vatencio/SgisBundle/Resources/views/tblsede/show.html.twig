@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblsede</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidsede</th>
+                <td>{{ tblsede.intidsede }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblsede.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblsede.dtmcreacion %}{{ tblsede.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblsede.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblsede.dtmactualizacion %}{{ tblsede.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblsede.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblsede_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblsede_edit', { 'id': tblsede.intidsede }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

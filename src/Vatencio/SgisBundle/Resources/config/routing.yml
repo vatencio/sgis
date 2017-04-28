@@ -1,0 +1,24 @@
+VatencioSgisBundle_default:
+    resource: "@VatencioSgisBundle/Resources/config/routing/default.yml"
+    prefix:   /
+VatencioSgisBundle_tblcalificacion:
+    resource: "@VatencioSgisBundle/Resources/config/routing/tblcalificacion.yml"
+    prefix:   /calificacion
+VatencioSgisBundle_tbldocente:
+    resource: "@VatencioSgisBundle/Resources/config/routing/tbldocente.yml"
+    prefix:   /docente
+VatencioSgisBundle_tblpersona:
+    resource: "@VatencioSgisBundle/Resources/config/routing/tblpersona.yml"
+    prefix:   /persona     
+login_check:
+    path: /login_check
+    defaults: { _controller: VatencioSgisBundle:Security:login }
+register:
+    path: /register
+    defaults: { _controller: VatencioSgisBundle:Registration:register }    
+logout:
+    path: /logout
+VatencioSgisBundle_change_password: 
+    path: /change-password 
+    defaults: { _controller: VatencioSgisBundle:ChangePassword:changePassword } 
+   # defaults: { _controller:FOSUserBundle:ChangePassword:changePassword  }    

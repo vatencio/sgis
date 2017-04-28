@@ -1,0 +1,65 @@
+Vatencio\SgisBundle\Entity\Tblgrupoestudiante:
+    type: entity
+    table: tblgrupoestudiante
+    indexes:
+        intIdGrupo:
+            columns:
+                - intIdGrupo
+        intIdEstudiante:
+            columns:
+                - intIdEstudiante
+    id:
+        intidgrupoestudiante:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdGrupoestudiante
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidestudiante:
+            targetEntity: Tblestudiante
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdEstudiante:
+                    referencedColumnName: intIdEstudiante
+            orphanRemoval: false
+        intidgrupo:
+            targetEntity: Tblgrupo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdGrupo:
+                    referencedColumnName: intIdGrupo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

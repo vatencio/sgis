@@ -1,0 +1,24 @@
+tbldocenteinstitucion_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tbldocenteinstitucion:index" }
+    methods:  GET
+
+tbldocenteinstitucion_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tbldocenteinstitucion:show" }
+    methods:  GET
+
+tbldocenteinstitucion_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tbldocenteinstitucion:new" }
+    methods:  [GET, POST]
+
+tbldocenteinstitucion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tbldocenteinstitucion:edit" }
+    methods:  [GET, POST]
+
+tbldocenteinstitucion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tbldocenteinstitucion:delete" }
+    methods:  DELETE

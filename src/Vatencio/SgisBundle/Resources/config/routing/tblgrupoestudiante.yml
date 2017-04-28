@@ -1,0 +1,24 @@
+tblgrupoestudiante_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupoestudiante:index" }
+    methods:  GET
+
+tblgrupoestudiante_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupoestudiante:show" }
+    methods:  GET
+
+tblgrupoestudiante_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupoestudiante:new" }
+    methods:  [GET, POST]
+
+tblgrupoestudiante_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupoestudiante:edit" }
+    methods:  [GET, POST]
+
+tblgrupoestudiante_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblgrupoestudiante:delete" }
+    methods:  DELETE

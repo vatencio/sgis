@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbltipodocumento</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidtipodocumento</th>
+                <td>{{ tbltipodocumento.intidtipodocumento }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tbltipodocumento.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Strdescripcion</th>
+                <td>{{ tbltipodocumento.strdescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tbltipodocumento.dtmcreacion %}{{ tbltipodocumento.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tbltipodocumento.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tbltipodocumento.dtmactualizacion %}{{ tbltipodocumento.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tbltipodocumento.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbltipodocumento_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tbltipodocumento_edit', { 'id': tbltipodocumento.intidtipodocumento }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

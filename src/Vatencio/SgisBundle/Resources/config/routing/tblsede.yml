@@ -1,0 +1,24 @@
+tblsede_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblsede:index" }
+    methods:  GET
+
+tblsede_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblsede:show" }
+    methods:  GET
+
+tblsede_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblsede:new" }
+    methods:  [GET, POST]
+
+tblsede_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblsede:edit" }
+    methods:  [GET, POST]
+
+tblsede_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblsede:delete" }
+    methods:  DELETE

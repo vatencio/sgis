@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbllogros list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidlogro</th>
+                <th>Strnombre</th>
+                <th>Strdescripcion</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tbllogro in tbllogros %}
+            <tr>
+                <td><a href="{{ path('tbllogro_show', { 'id': tbllogro.intidlogro }) }}">{{ tbllogro.intidlogro }}</a></td>
+                <td>{{ tbllogro.strnombre }}</td>
+                <td>{{ tbllogro.strdescripcion }}</td>
+                <td>{% if tbllogro.dtmcreacion %}{{ tbllogro.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbllogro.strcreacion }}</td>
+                <td>{% if tbllogro.dtmactualizacion %}{{ tbllogro.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbllogro.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tbllogro_show', { 'id': tbllogro.intidlogro }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tbllogro_edit', { 'id': tbllogro.intidlogro }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbllogro_new') }}">Create a new tbllogro</a>
+        </li>
+    </ul>
+{% endblock %}

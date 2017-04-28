@@ -1,0 +1,24 @@
+tblperiodoyear_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodoyear:index" }
+    methods:  GET
+
+tblperiodoyear_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodoyear:show" }
+    methods:  GET
+
+tblperiodoyear_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodoyear:new" }
+    methods:  [GET, POST]
+
+tblperiodoyear_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodoyear:edit" }
+    methods:  [GET, POST]
+
+tblperiodoyear_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblperiodoyear:delete" }
+    methods:  DELETE

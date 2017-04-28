@@ -1,0 +1,24 @@
+tbltipodocumento_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tbltipodocumento:index" }
+    methods:  GET
+
+tbltipodocumento_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tbltipodocumento:show" }
+    methods:  GET
+
+tbltipodocumento_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tbltipodocumento:new" }
+    methods:  [GET, POST]
+
+tbltipodocumento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tbltipodocumento:edit" }
+    methods:  [GET, POST]
+
+tbltipodocumento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tbltipodocumento:delete" }
+    methods:  DELETE

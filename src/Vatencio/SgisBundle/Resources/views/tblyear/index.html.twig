@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblyears list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intidyear</th>
+                <th>Strnombre</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tblyear in tblyears %}
+            <tr>
+                <td><a href="{{ path('tblyear_show', { 'id': tblyear.intidyear }) }}">{{ tblyear.intidyear }}</a></td>
+                <td>{{ tblyear.strnombre }}</td>
+                <td>{% if tblyear.dtmcreacion %}{{ tblyear.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblyear.strcreacion }}</td>
+                <td>{% if tblyear.dtmactualizacion %}{{ tblyear.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tblyear.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tblyear_show', { 'id': tblyear.intidyear }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tblyear_edit', { 'id': tblyear.intidyear }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblyear_new') }}">Create a new tblyear</a>
+        </li>
+    </ul>
+{% endblock %}

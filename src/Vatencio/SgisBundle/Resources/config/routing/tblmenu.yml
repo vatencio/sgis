@@ -1,0 +1,24 @@
+tblmenu_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblmenu:index" }
+    methods:  GET
+
+tblmenu_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblmenu:show" }
+    methods:  GET
+
+tblmenu_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblmenu:new" }
+    methods:  [GET, POST]
+
+tblmenu_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblmenu:edit" }
+    methods:  [GET, POST]
+
+tblmenu_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblmenu:delete" }
+    methods:  DELETE

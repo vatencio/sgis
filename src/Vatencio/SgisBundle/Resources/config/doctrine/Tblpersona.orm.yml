@@ -1,0 +1,112 @@
+Vatencio\SgisBundle\Entity\Tblpersona:
+    type: entity
+    table: tblpersona
+    indexes:
+        intIdSede:
+            columns:
+                - intIdSede
+        intIdTipoDocumento:
+            columns:
+                - intIdTipoDocumento
+    id:
+        intidpersona:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdPersona
+            generator:
+                strategy: IDENTITY
+    fields:
+        strnodocumento:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+            column: strNoDocumento
+        strprimernombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+            column: strPrimerNombre
+        strsegundonombre:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strSegundoNombre
+        strprimerapellido:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+            column: strPrimerApellido
+        strsegundoapellido:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strSegundoApellido
+        strsexo:
+            type: boolean
+            nullable: false
+            column: strSexo
+        isactive:
+            type: boolean
+            nullable: false
+            column: isActive
+        dtmfechanacimiento:
+            type: datetime
+            nullable: false
+            column: dtmFechaNacimiento
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidtipodocumento:
+            targetEntity: Tbltipodocumento
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdTipoDocumento:
+                    referencedColumnName: intIdTipoDocumento
+            orphanRemoval: false
+        intidsede:
+            targetEntity: Tblsede
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdSede:
+                    referencedColumnName: iintIdSede
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tbldocentesedes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Intiddocentesede</th>
+                <th>Dtmcreacion</th>
+                <th>Strcreacion</th>
+                <th>Dtmactualizacion</th>
+                <th>Stractualizacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tbldocentesede in tbldocentesedes %}
+            <tr>
+                <td><a href="{{ path('tbldocentesede_show', { 'id': tbldocentesede.intiddocentesede }) }}">{{ tbldocentesede.intiddocentesede }}</a></td>
+                <td>{% if tbldocentesede.dtmcreacion %}{{ tbldocentesede.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocentesede.strcreacion }}</td>
+                <td>{% if tbldocentesede.dtmactualizacion %}{{ tbldocentesede.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tbldocentesede.stractualizacion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tbldocentesede_show', { 'id': tbldocentesede.intiddocentesede }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tbldocentesede_edit', { 'id': tbldocentesede.intiddocentesede }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tbldocentesede_new') }}">Create a new tbldocentesede</a>
+        </li>
+    </ul>
+{% endblock %}

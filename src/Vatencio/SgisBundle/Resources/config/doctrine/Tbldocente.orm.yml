@@ -1,0 +1,86 @@
+Vatencio\SgisBundle\Entity\Tbldocente:
+    type: entity
+    table: tbldocente
+    indexes:
+        intIdPersona:
+            columns:
+                - intIdPersona
+        intIdFosUser:
+            columns:
+                - intIdFosUser
+    id:
+        intiddocente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdDocente
+            generator:
+                strategy: IDENTITY
+    fields:
+        strespecialidad:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: strEspecialidad
+        struser:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: strUser
+        strpassword:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: strPassword
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidpersona:
+            targetEntity: Tblpersona
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdPersona:
+                    referencedColumnName: intIdPersona
+            orphanRemoval: false
+        intidfosuser:
+            targetEntity: FosUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdFosUser:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

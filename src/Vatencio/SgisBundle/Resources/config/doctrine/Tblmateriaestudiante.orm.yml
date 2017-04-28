@@ -1,0 +1,65 @@
+Vatencio\SgisBundle\Entity\Tblmateriaestudiante:
+    type: entity
+    table: tblmateriaestudiante
+    indexes:
+        intIdEstudiante:
+            columns:
+                - intIdEstudiante
+        intIdMateria:
+            columns:
+                - intIdMateria
+    id:
+        intidmateriaestudiante:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: intIdMateriaEstudiante
+            generator:
+                strategy: IDENTITY
+    fields:
+        dtmcreacion:
+            type: datetime
+            nullable: true
+            column: dtmCreacion
+        strcreacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strCreacion
+        dtmactualizacion:
+            type: datetime
+            nullable: true
+            column: dtmActualizacion
+        stractualizacion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: strActualizacion
+    manyToOne:
+        intidmateria:
+            targetEntity: Tblmateria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdMateria:
+                    referencedColumnName: intIdMateria
+            orphanRemoval: false
+        intidestudiante:
+            targetEntity: Tblestudiante
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                intIdEstudiante:
+                    referencedColumnName: intIdEstudiante
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

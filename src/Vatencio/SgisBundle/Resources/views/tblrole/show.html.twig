@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tblrole</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Intidrol</th>
+                <td>{{ tblrole.intidrol }}</td>
+            </tr>
+            <tr>
+                <th>Strnombre</th>
+                <td>{{ tblrole.strnombre }}</td>
+            </tr>
+            <tr>
+                <th>Strdescripcion</th>
+                <td>{{ tblrole.strdescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmcreacion</th>
+                <td>{% if tblrole.dtmcreacion %}{{ tblrole.dtmcreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Strcreacion</th>
+                <td>{{ tblrole.strcreacion }}</td>
+            </tr>
+            <tr>
+                <th>Dtmactualizacion</th>
+                <td>{% if tblrole.dtmactualizacion %}{{ tblrole.dtmactualizacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stractualizacion</th>
+                <td>{{ tblrole.stractualizacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tblrole_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tblrole_edit', { 'id': tblrole.intidrol }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+tblroledocente_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblroledocente:index" }
+    methods:  GET
+
+tblroledocente_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblroledocente:show" }
+    methods:  GET
+
+tblroledocente_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblroledocente:new" }
+    methods:  [GET, POST]
+
+tblroledocente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblroledocente:edit" }
+    methods:  [GET, POST]
+
+tblroledocente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblroledocente:delete" }
+    methods:  DELETE

@@ -1,0 +1,24 @@
+tblrole_index:
+    path:     /
+    defaults: { _controller: "VatencioSgisBundle:Tblrole:index" }
+    methods:  GET
+
+tblrole_show:
+    path:     /{id}/show
+    defaults: { _controller: "VatencioSgisBundle:Tblrole:show" }
+    methods:  GET
+
+tblrole_new:
+    path:     /new
+    defaults: { _controller: "VatencioSgisBundle:Tblrole:new" }
+    methods:  [GET, POST]
+
+tblrole_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VatencioSgisBundle:Tblrole:edit" }
+    methods:  [GET, POST]
+
+tblrole_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VatencioSgisBundle:Tblrole:delete" }
+    methods:  DELETE
