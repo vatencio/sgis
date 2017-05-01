@@ -1,0 +1,232 @@
+$(document).ready(function(){       
+    // Funcion para colocar el datepicker a las fechas
+function init(){     
+        var idSucursal=0;
+        var idEmpresaCliente=0;
+        var idUsuario=0;   
+        var idPrueba=0;
+        var bandGenSerial = false;
+        // Cuando se la empresa cliente cambia la empresa persona
+        // Deshabilito la empresa persona
+        // Deshabilito la sucursal                
+        $( ".componente_boton" ).button();
+        $( ".boton_gen_serial" ).button( "option", "disabled", true );
+        $( ".SucursalSelect" ).attr('disabled',true);
+        $( ".UsuarioSelect" ).attr('disabled',true);
+        $( ".PruebaSelect" ).attr('disabled',true);
+        if(accionAbrir === "nuevo"){
+            $( "[id*=rht_rhtonlinebundle_sguusuariopruebatype_fechaRenovacion]" ).attr('disabled',true);
+        }
+        //Se establece que por defecto se asigna fecha de renovacion un anio despues de la fecha inicial de
+        //la licencia..
+        //cambio en el anio de fecha inicial de la licencia
+        $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_year" ).change(function(){
+            $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaRenovacion_year" ).val(
+                parseInt($( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_year" ).val()) + 1
+            );
+        });
+        //cambio en el mes de fecha inicial de la licencia
+        $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_month" ).change(function(){
+            $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaRenovacion_month" ).val(
+                $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_month" ).val()
+            );
+        }); 
+        //cambio en el dia de fecha inicial de la licencia
+        $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_day" ).change(function(){
+            $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaRenovacion_day" ).val(
+                $( "#rht_rhtonlinebundle_sguusuariopruebatype_fechaInicial_day" ).val()
+            );
+        }); 
+        
+        $(".EmpresaClienteSelect").change(function(){
+            var idEmpresaCliente=0;
+            if($(".EmpresaClienteSelect").val() !== null){
+                idEmpresaCliente=$(".EmpresaClienteSelect").val();
+            }           
+           // ajax para seleccionar la sucursal despues de haber elegido la empresa cliente;
+           var idSucursal=0;
+            if($(".SucursalSelect").val() !== null){
+                idSucursal=$(".SucursalSelect").val();
+            }
+           // console.log(idEmpresaCliente);
+            $.ajax({
+                url: Routing.generate('sgusucursal_findByIdEmpresaCliente', { idempresacliente: idEmpresaCliente,idsucursal: idSucursal }),
+                data: $(".SucursalSelect").val(),
+                type: "post",
+                success: function(json) {                    
+                $(".SucursalSelect").attr('disabled',false);
+                $( ".SucursalSelect" ).html(json);
+                $( ".SucursalSelect" ).trigger('change');
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr);
+                }
+            });   
+        });
+        
+        if($(".EmpresaClienteSelect").val()){
+           // console.log($(".EmpresaClienteSelect").val());
+            $( ".EmpresaClienteSelect" ).trigger('change');
+            //$(".EmpresaPersonaSelect").attr('disabled',false);
+        }
+        
+        // Cargo la empresa cliente apartir de la sucursal
+        $(".SucursalSelect").change(function(){
+            var idSucursal=0;
+            if($(".idSucursal").val() !== null){
+                idSucursal=$(".SucursalSelect").val();
+            }
+            if($(".UsuarioSelect").val() !== null){ 
+                idUsuario = $(".UsuarioSelect").val();
+            } 
+            $.ajax({
+                url: Routing.generate('sguusuario_findUsuarioClienteByIdSucursal', { idsucursal: idSucursal, idusuario: idUsuario }),
+                data: $(".SucursalSelect").val(),
+                type: "post",
+                success: function(json) {                    
+                $(".UsuarioSelect").attr('disabled',false);
+                $( ".UsuarioSelect" ).html(json);
+                    if($("#claves_licencia_select").attr("id") !== undefined){                    
+                        $( ".UsuarioSelect" ).trigger('change');
+                    }                
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr);
+                }
+            });            
+        });                       
+        //Valida si existe el campo de licencia por usuario
+        if($("#claves_licencia_select").attr("id") !== undefined){                                    
+            $(".PruebaProducto").attr("disabled",true);
+            //Se obtienen las licencias del usuario
+            $(".UsuarioSelect").change(function(){            
+                if($(".UsuarioSelect").val() !== null){ 
+                    idUsuario = $(".UsuarioSelect").val();
+    }
+                $.ajax({
+                    url: Routing.generate('sguusuarioprueba_findUsuarioPruebaByIdUsuario', { idusuario: idUsuario }),
+                    data: $( ".UsuarioSelect" ).val(),
+                    type: "post",
+                    success: function(response) {                                  
+                        $( ".LicenciaSelect" ).attr('disabled',false);
+                        $( ".LicenciaSelect" ).html(response);
+                        $( ".LicenciaSelect" ).trigger('change');
+                    },
+                    error:function (xhr, ajaxOptions, thrownError) {
+                     console.log(xhr);
+                    }
+                });                              
+            });            
+            //Evento change sobre PruebaSelect
+            $(".LicenciaSelect").change(function(){
+                $( ".boton_gen_serial" ).button( "option", "disabled", true );
+                if($(".LicenciaSelect").val() !== null){ 
+                    idLicencia = $(".LicenciaSelect").val();
+                }
+                $.ajax({
+                    url: Routing.generate('sisclaveseriallicencia_findClaveSerialLicenciaByIdLicencia', { idlicencia: idLicencia }),
+                    data: $( ".LicenciaSelect" ).val(),
+                    type: "post",
+                    success: function(json) {
+                        if(bandGenSerial === false){                            
+                            $( "[id*=clave_campo_]" ).val("");
+                            $( "[id*=serial_campo_]" ).val("");                                        
+                        }else{//se reinicia la bandera`                            
+                            bandGenSerial = false;
+                        }                       
+                        $( "#claves_lista_claves" ).html(json);
+                        $( ".lista_clave_serial_item" ).click(function(){                            
+                            //Muestra la clave del item de la lista seleccionado
+                            var clave = $( "#lista_clave_serial_clave_" + $(this).attr("value")).text();
+                            var arrClave = clave.split("-");
+                            var nClave = arrClave.length;                            
+                            for(i = 0; i < nClave; i++){
+                                $( "#clave_campo_" + (i+1) ).val(arrClave[i]);
+                            }                                                        
+                            var serial = $( "#lista_clave_serial_serial_" + $(this).attr("value")).text();
+                            //Valida si existe el serial en la lista
+                            if(serial !== ""){                               
+                               //Muestra el serial del item de la lista seleccionado
+                               var arrSerial = serial.split("-");
+                               var nSerial = arrSerial.length; 
+                               for(i = 0; i < nSerial; i++){
+                                 $( "#serial_campo_" + (i+1) ).val(arrSerial[i]);
+                               }
+                            }else{                               
+                                $( ".boton_gen_serial" ).button( "option", "disabled", false );
+                                $( ".boton_gen_serial" ).attr("value",$(this).attr("value"));
+                            }
+                        })
+                    },
+                    error:function (xhr, ajaxOptions, thrownError) {
+                     console.log(xhr);
+                    }
+                });
+            });
+            //Evento click sobre boton generar serial
+            $( ".boton_gen_serial" ).click( function(){                
+                id = $(this).val();    
+                $.ajax({
+                    url: Routing.generate('sisclaveseriallicencia_generarSerialLicencia', { id: id }),                
+                    data: $(this).val(),
+                    type: "post",
+                    success: function(json) {                                                  
+                         var serial = json; 
+                         var arrSerial = serial.split("-");
+                         var nSerial = arrSerial.length; 
+                         for(i = 0; i < nSerial; i++){
+                           $( "#serial_campo_" + (i+1) ).val(arrSerial[i]);
+                         }
+                         bandGenSerial = true;//bandera generacion de seriales
+                         //Actualizar lista
+                         $( ".LicenciaSelect" ).trigger('change');
+                    },
+                    error:function (xhr, ajaxOptions, thrownError) {
+                     console.log(xhr);
+                    }
+                }); 
+            });
+        }else{
+            //Se obtienen las licencias del usuario
+            $(".UsuarioSelect").change(function(){            
+                if($(".UsuarioSelect").val() !== null){ 
+                    idUsuario = $(".UsuarioSelect").val();
+                }                
+                $.ajax({
+                    url: Routing.generate('sguusarioprueba_findPruPruebaNoLicenciaByIdUsuario', { idusuario: idUsuario }),
+                    data: $( ".UsuarioSelect" ).val(),
+                    type: "post",
+                    success: function(response) {                                  
+                        $( ".PruebaSelect" ).attr('disabled',false);
+                        $( ".PruebaSelect" ).html(response);                        
+                    },
+                    error:function (xhr, ajaxOptions, thrownError) {
+                     console.log(xhr);
+                    }
+                });              
+            });               
+        }
+        //Si usuario tiene valor significa que se esta editando la licencia
+        if($(".UsuarioSelect").val() !== "0" && $(".UsuarioSelect").val() !== null){            
+            idUsuario = $( ".UsuarioSelect" ).val();            
+            $.ajax({
+                url: Routing.generate('sguusuario_findSucursalEmpresaClienteById', { idusuario: idUsuario }),                
+                data: $( ".UsuarioSelect" ).val(),
+                type: "post",
+                success: function(json) {                                                  
+                     json = json.split(",");
+                     $( ".EmpresaClienteSelect" ).val(json[0]);                     
+                     $( ".SucursalSelect" ).val(json[1]);                                           
+                     $( ".SucursalSelect" ).attr('disabled',false);                           
+                     $( ".EmpresaClienteSelect" ).trigger('change');                                          
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                 console.log(xhr);
+                }
+            });                                    
+        }                                       
+    }
+    init();
+});
+
+
